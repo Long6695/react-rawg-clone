@@ -8,8 +8,7 @@ import { Link } from 'react-router-dom'
 // components
 import Spinner from 'components/spinner/Spinner'
 import IconPlatform from './IconPlatform'
-//libraries
-import Fade from 'react-reveal/Fade';
+
 // icons
 import {AiFillWindows, AiFillApple, AiOutlinePlus, AiOutlineCheck} from 'react-icons/ai'
 import {FaPlaystation, FaXbox} from 'react-icons/fa'
@@ -63,7 +62,7 @@ const Cards = () => {
 
     const observer = new IntersectionObserver((entries) => {
       if(!entries[0].isIntersecting) return 
-      console.log(entries)
+     
       setPageNumber(prev => prev + 1)
     }, options)
 
@@ -82,13 +81,14 @@ const Cards = () => {
 
 
   const handlePlatforms = (platform) => {
-    return icons.filter(icon => {
+    let iconArr = []
+    icons.filter(icon => {
       if(platform.includes(icon.name)){
-        return icon.icon
-      }else {
-        return
+        iconArr.push(icon.icon)
       }
+      
     })
+    return iconArr
   }
 
   const handleAdded = (id) => {
@@ -109,8 +109,7 @@ const Cards = () => {
         <Row>
      {games.length > 0 && games.map(game => {
        return (
-              
-            <Fade top>
+            
               <Column key={game.id}>
                   <Image src={game.background_image}/> 
 
@@ -119,6 +118,7 @@ const Cards = () => {
                             {handlePlatforms(game.platforms
                             .map(item => item.platform.name.toLowerCase()))
                             .map((icon,index) => <IconPlatform key={index} icons={icon}/>)}
+                            
                             </Platform>
 
 
@@ -146,7 +146,7 @@ const Cards = () => {
                         </Added>
                   </WrapContent>
               </Column>
-            </Fade>
+           
           
        )
      })}

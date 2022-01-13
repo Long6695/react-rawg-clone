@@ -23,6 +23,6 @@ const Container = styled.aside`
   min-height: 100vh;
   background: transparent;
 `
-const Tag = styled.div`
-  padding: 20px 0;
-`
+// const Tag = styled.div`
+//   padding: 20px 0;
+// `

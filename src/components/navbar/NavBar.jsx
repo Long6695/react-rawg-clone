@@ -15,7 +15,6 @@ const NavBar = () => {
 
   const {ref, isOpen} = useComponentVisible()
 
-  console.log(ref,isOpen)
 
   const debounceValueRef = useRef
 
@@ -35,7 +34,6 @@ const NavBar = () => {
 
   }
 
-console.log(searchedGame)
   return (
     <Nav>
       <Logo>
